@@ -19,6 +19,10 @@ fn main() {
         m,
         greatest_common_divisor(n, m)
     );
+
+    let num = 1789989;
+
+    println!("Sum of digits in {} is {}", num, digit_sum(num));
 }
 
 fn cannonball(height: i32) -> i32 {
@@ -45,5 +49,13 @@ fn greatest_common_divisor(x: i32, y: i32) -> i32 {
         x
     } else {
         greatest_common_divisor(y, x % y)
+    }
+}
+
+fn digit_sum(x: i32) -> i32 {
+    if x % 10 == x {
+        x
+    } else {
+        x % 10 + digit_sum(x / 10)
     }
 }
