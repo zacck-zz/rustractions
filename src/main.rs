@@ -6,10 +6,19 @@ fn main() {
         cannonball(h)
     );
 
-    let m = 3;
-    let n = 5;
+    let m = 5;
+    let n = 7;
 
     println!("{} raised to power {} is: {}", m, n, raise_to_power(m, n));
+
+    println!("{}", n % m);
+
+    println!(
+        "The greatest common divisor of {} and {}  is {}",
+        n,
+        m,
+        greatest_common_divisor(n, m)
+    );
 }
 
 fn cannonball(height: i32) -> i32 {
@@ -28,5 +37,13 @@ fn raise_to_power(number: i32, power: i32) -> i32 {
         1
     } else {
         number * raise_to_power(number, power - 1)
+    }
+}
+
+fn greatest_common_divisor(x: i32, y: i32) -> i32 {
+    if y == 0 {
+        x
+    } else {
+        greatest_common_divisor(y, x % y)
     }
 }
